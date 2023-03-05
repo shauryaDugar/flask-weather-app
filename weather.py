@@ -1,10 +1,25 @@
-from flask import Flask
+from flask import Flask, render_template
+import requests
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
+load_dotenv()
+
+list = ['Jaipur', 'New Delhi', 'Allahabad']
+my_api_key=os.environ.get('API_KEY')
+
 @app.route('/')
 def index():
-    return 'Hello World!'
+    base_url = 'http://api.weatherapi.com/v1/current.json?key='+my_api_key
+    weather_data=[]
+    for city in list:
+        url=base_url+'&q='+city
+        r=requests.get(url).json()
+        print(r)
+        weather_data.append(r)
+    return render_template('weather.html', weather_data=weather_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
