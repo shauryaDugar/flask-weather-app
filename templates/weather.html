@@ -5,16 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div>
-        <h1>Hey Welcome to the weather app</h1>
-    </div>
-    <div>
-        {% for weather in weather_data %}
-            <h2>{{weather['location']['name']}}</h2>
-            <h3>{{weather['current']['temp_c']}}</h3>
-        {% endfor %}
-    </div>
+    <main>
+        <div>
+            <h1 class="heading">Hey Welcome to the weather app</h1>
+            <hr>
+            <form method="post">
+                <fieldset>
+                    <label for="new-city-name">Enter the city name to search for its weather
+                        <input type="text" id="new-city-name" name="new-city-name" placeholder="Enter city name" />
+                    </label>
+                </fieldset>   
+                <h2>OR</h2> 
+                <fieldset>
+                    <label for="city">Select a city from the list
+                        <select id="city"></select>
+                    </label>
+                </fieldset>
+            </form>
+            <hr>
+            <section>
+                {% for weather in weather_data %}
+                    <div class="city-weather">
+                        {% if weather['error'] %}
+                            <p>{{ weather['error']['message'] }}</p>
+                        {% else %}
+                            <p class="city-name">{{ weather['location']['name'] }}</p><p class="city-temp">{{ weather['current']['temp_c'] }}c</p>
+                        {% endif %}     
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </main>
 </body>
 </html>

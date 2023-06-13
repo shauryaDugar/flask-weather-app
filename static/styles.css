@@ -1,0 +1,87 @@
+body {
+    background-image: url("clouds-ga1367e6ca_1920.jpg");
+}
+
+h1, h2, h3 {
+    color: darkblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.heading {
+    font-style: bold;
+    padding-top: 15px;
+}
+
+hr {
+    height: 2px;
+    border-color: black;
+    background-color: black;
+    width: 90%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+div {
+    background-color: lightskyblue;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: center;
+    max-width: 500px;
+}
+
+section {
+    background-color: darkblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.city-weather {
+    background: linear-gradient(180deg, rgb(190, 237, 252), rgb(106, 161, 255), rgb(179, 213, 224));
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 0 10px 0 white;
+}
+
+.city-weather p{
+    display: inline-block;
+    font-size: 18px;
+}
+
+.city-name {
+    text-align: left;
+    width: 75%;
+}
+
+.city-temp {
+    text-align: right;
+    width: 25%;
+}
+
+form {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 10px 0;
+}
+
+fieldset {
+    margin: 10px auto;
+    width: 90%;
+    border: none;
+    /* border-bottom: 2px solid darkblue; */
+    text-align: left;
+}
+
+/* fieldset:last-of-type {
+    border-bottom: none;
+} */
+
+input, select{
+    width: 100%;
+    margin: 10px 0 0 0;
+}

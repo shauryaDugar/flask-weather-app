@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 load_dotenv()
 
-list = ['Jaipur', 'New Delhi', 'Allahabad']
+list = ['Jaipur', 'New Delhi', 'allahabad']
 my_api_key=os.environ.get('API_KEY')
 
 @app.route('/')
@@ -16,9 +16,11 @@ def index():
     weather_data=[]
     for city in list:
         url=base_url+'&q='+city
-        r=requests.get(url).json()
+        r=requests.get(url)
+        if r.status_code==400:
+            continue
         print(r)
-        weather_data.append(r)
+        weather_data.append(r.json())
     return render_template('weather.html', weather_data=weather_data)
 
 if __name__ == '__main__':
